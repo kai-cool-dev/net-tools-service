@@ -1,5 +1,5 @@
 FROM ahmetozer/golang
-WORKDIR /go/src/github.com/ahmetozer/net-tools-service
+WORKDIR /go/src/github.com/kai-cool-dev/net-tools-service
 COPY . .
 
 # Get dependencies
@@ -11,7 +11,7 @@ RUN CGO_ENABLED=0 go build -o /bin/net-tools-service
 
 # Switch to server ENV
 FROM ubuntu
-LABEL org.opencontainers.image.source https://github.com/ahmetozer/net-tools-service
+LABEL org.opencontainers.image.source https://github.com/kai-cool-dev/net-tools-service
 # Get all required packages
 RUN export DEBIAN_FRONTEND=noninteractive; apt update; apt install iputils-ping traceroute dnsutils whois ca-certificates curl mtr-tiny libcap2-bin --no-install-recommends -y ; apt clean;apt autoclean
 
